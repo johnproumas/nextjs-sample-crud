@@ -11,7 +11,9 @@ const TodoCard = ({ id, isCompleted, title }: TTodo) => {
     const queryClient = useQueryClient();
 
     const { mutate: deleteTodo, isLoading: deleteLoading } = useMutation({
-        mutationFn: async () => await axios.post('/api/todos/delete', { id: id }),
+        mutationFn: async () => {
+            await axios.post('/api/todos/delete', { id: id });
+        },
         onSuccess: () => {
             toast.success(`Deleted Todo: ${title}`);
             queryClient.invalidateQueries(['userTodos']);
@@ -20,7 +22,9 @@ const TodoCard = ({ id, isCompleted, title }: TTodo) => {
     });
 
     const { mutate: updateTodo, isLoading: updateLoading } = useMutation({
-        mutationFn: async () => await axios.post('/api/todos/status', { id: id, isCompleted: isCompleted }),
+        mutationFn: async () => {
+            await axios.post('/api/todos/status', { id: id, isCompleted: isCompleted });
+        },
         onSuccess: () => {
             toast.success(`Updated Todo: ${title}`);
             queryClient.invalidateQueries(['userTodos']);
