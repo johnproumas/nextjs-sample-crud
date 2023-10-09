@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 
-import { ModeToggle } from "./theme-toggle";
 import Image from "next/image";
 import { Button } from "./ui/button";
 import SuccessToast from "./SuccessToast";
@@ -61,7 +60,6 @@ const Nav = () => {
                 })}>
                     Custom Toast!
                 </Button>
-                <ModeToggle />
             </div>
         </header >
     );
