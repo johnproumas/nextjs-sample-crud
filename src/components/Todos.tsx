@@ -10,7 +10,8 @@ const Todos = () => {
     const { data, isLoading, isError } = useQuery<TTodo[]>({
         queryKey: ['userTodos'],
         queryFn: async () => {
-            const { data } = await axios.get("/api/todos/fetch");
+            // const { data } = await axios.get("/api/todos/fetch");
+            const { data } = await axios.get("/api/todos/create");
             return data as TTodo[];
         }
     });
